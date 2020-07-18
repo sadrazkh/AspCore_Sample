@@ -56,7 +56,9 @@ namespace Asp_Sample.Areas.Account.Controllers
                 var user = new AppUser()
                 {
                     UserName = model.UserName,
-                    Email = model.Email
+                    Email = model.Email,
+                    RegistrationTime = DateTime.Now,
+                    Active = true,
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
