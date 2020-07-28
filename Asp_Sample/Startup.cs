@@ -30,9 +30,25 @@ namespace Asp_Sample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             #region Auth
+
+            #region Liara Connection Configuration
+
+            //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+
+            //builder.DataSource = "s11.liara.ir,30292";
+            //builder.UserID = "sa";
+            //builder.Password = "yYhnSKnhGkV8iFYPpgxtg3aE";
+            //builder.InitialCatalog = "appDataBase";
+
+            //services.AddDbContextPool<AppDbContext>(options =>
+            //{
+            //    options.UseSqlServer(new SqlConnection(builder.ConnectionString));
+            //});
+
+            #endregion
 
             services.AddDbContextPool<AppDbContext>(options =>
             {
@@ -51,7 +67,7 @@ namespace Asp_Sample
             services.AddIdentity<AppUser, IdentityRole>(options =>
                 {
                     options.Password.RequiredUniqueChars = 0;
-                    
+
                     options.User.RequireUniqueEmail = true;
                     //options.User.AllowedUserNameCharacters =
                     //    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-";

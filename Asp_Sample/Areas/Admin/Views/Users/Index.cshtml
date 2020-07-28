@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section Styles
+{
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+}
+
+<div id="app">
+    @*<div class="row">
+            <div class=" col-sm-4">
+                <div class="input-group">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search for..." v-model="searchTerm" v-on:keyup.prevent="searchList">
+                        </div>
+                        <button class="btn btn-default" type="button" v-on:click.prevent="searchList">
+                            <i class="fa fa-search"></i>
+                        </button>
+
+                        <button class="btn btn-default" type="button" v-on:click="refreshList">
+                            <i class="fa fa-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <select v-model="selectedContinent" class="form-control" v-on:click="filterByContinet">
+                    <option v-for="item in continents">
+                        {{ item }}
+                    </option>
+                </select>
+            </div>
+        </div>*@
+    <div class="text-center table-responsive">
+        <table class="table table-condensed table-hover table-striped table-hover">
+            <thead>
+                <tr>
+                    <th> # </th>
+                    <th> id </th>
+                    <th> UserName </th>
+                    <th> Email </th>
+                    <th> RegistrationTime </th>
+                    <th> EmailConfirmed </th>
+                    <th> Active </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(user,index) in userList" v-bind:key="user.id">
+                    <td>{{ index+1 }}</td>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.userName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.registrationTime }}</td>
+                    <td>
+                        <i v-if="user.emailConfirmed" class="material-icons" style="font-size:36px;color:green">check</i>
+                        <i v-else class="material-icons" style="color: red">cancel</i>
+                    </td>
+                    <td>
+                        <i v-on:click="deActive(user.id)" v-if="user.active" class="material-icons" style="font-size:36px;color:green">check</i>
+                        <i v-on:click="active(user.id)" v-else class="material-icons" style="color: red">cancel</i>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="~/lib/vue/vue.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script>
+
+
+        const app = new Vue({
+            el: "#app",
+            data: {
+                rows: 100,
+                perPage: 10,
+                currentPage: 1,
+                userList: [],
+            },
+
+            created: function () {
+                this.getList();
+            },
+            methods: {
+                getList: function () {
+                    var vm = this;
+                    $.ajax({ url: "/admin/api/GetUser", method: "GET" })
+                        .done(function (data) {
+                            vm.userList = data;
+                        }).fail(function () {
+                        }).always(function () {
+                        });
+                },
+
+                accountActivation: function () {
+                    var vm = this;
+                    $.ajax({ url: "/admin/api/GetUser", method: "POST" })
+                        .done(function (data) {
+                            vm.userList = data;
+                        }).fail(function () {
+                        }).always(function () {
+                        });
+                },
+
+                active: function (id) {
+
+                },
+
+                deActive: function (id) {
+
+                },
+            },
+        });
+
+
+
+    </script>
+}

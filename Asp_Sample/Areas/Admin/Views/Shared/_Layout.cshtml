@@ -10,6 +10,7 @@
     <title>@ViewData["Title"] - IdentitySample</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <header>
@@ -74,9 +75,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://unpkg.com/@@popperjs/core@2/dist/umd/popper.js"></script>
-
-    <script src="~/app.js"></script>
+    @*<script src="https://unpkg.com/vuejs-paginate@latest"></script>*@
     @RenderSection("Scripts", required: false)
 </body>
 </html>

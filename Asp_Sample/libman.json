@@ -9,6 +9,18 @@
         "vue.min.js",
         "vue.js"
       ]
+    },
+    {
+      "library": "limonte-sweetalert2@7.33.1",
+      "destination": "wwwroot/css/limonte-sweetalert2/"
+    },
+    {
+      "library": "toastr.js@2.1.4",
+      "destination": "wwwroot/lib/toastr/"
+    },
+    {
+      "library": "axios@0.19.2",
+      "destination": "wwwroot/lib/axios/"
     }
   ]
 }
