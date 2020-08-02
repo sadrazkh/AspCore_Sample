@@ -102,5 +102,21 @@ namespace Core.Utilities
         {
             return str?.Length == 0 ? null : str;
         }
+        public static string Fix(this string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return string.Empty;
+            }
+
+            text = text.Trim();
+
+            while (text.Contains("  "))
+            {
+                text = text.Replace("  ", " ");
+            }
+
+            return text;
+        }
     }
 }

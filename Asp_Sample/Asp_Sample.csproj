@@ -18,13 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Areas\Account\Views\Shared\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Home\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebFramework\WebFramework.csproj" />
   </ItemGroup>
 
 </Project>
