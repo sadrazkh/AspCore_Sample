@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{1CBBDE89-FF58-4F99-B661-8E357636EA25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFramework", "WebFramework\WebFramework.csproj", "{FE155446-53F6-4316-B507-9A5564D05DEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebFramework", "WebFramework\WebFramework.csproj", "{FE155446-53F6-4316-B507-9A5564D05DEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{703C0D37-B929-4B3A-B934-474ED5DAD9D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FE155446-53F6-4316-B507-9A5564D05DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE155446-53F6-4316-B507-9A5564D05DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE155446-53F6-4316-B507-9A5564D05DEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{703C0D37-B929-4B3A-B934-474ED5DAD9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{703C0D37-B929-4B3A-B934-474ED5DAD9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{703C0D37-B929-4B3A-B934-474ED5DAD9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{703C0D37-B929-4B3A-B934-474ED5DAD9D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

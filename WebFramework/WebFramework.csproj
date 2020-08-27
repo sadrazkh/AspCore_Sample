@@ -22,7 +22,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="5.5.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
 </Project>
