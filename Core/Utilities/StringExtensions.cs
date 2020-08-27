@@ -2,7 +2,7 @@
 
 namespace Core.Utilities
 {
-    public static class StringExtensions
+    public static  class StringExtensions
     {
         public static bool HasValue(this string value, bool ignoreWhiteSpace = true)
         {
@@ -118,5 +118,6 @@ namespace Core.Utilities
 
             return text;
         }
+
     }
 }
