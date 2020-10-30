@@ -17,11 +17,14 @@ namespace DataLayer.Context
 
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // call the base if you are using Identity service.
             // Important
-            base.OnModelCreating(builder);
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration()//=> parametr behesh esm kelas mapping ro midim =>baraye har kelas map in apply ro seda mizanim
+
 
             // Code here ...
         }
