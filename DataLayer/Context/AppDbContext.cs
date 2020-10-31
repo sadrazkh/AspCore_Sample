@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DataLayer.Entity.Select_2_Test;
 using DataLayer.Entity.User;
+using DataLayer.mapping;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +11,7 @@ namespace DataLayer.Context
 {
     public class AppDbContext : IdentityDbContext<AppUser>
     {
-
+        public DbSet<Lesson> Lessons { get; set; }
 
         public AppDbContext(DbContextOptions dbContextOptions)
             : base(dbContextOptions)
@@ -23,7 +25,9 @@ namespace DataLayer.Context
             // Important
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration()//=> parametr behesh esm kelas mapping ro midim =>baraye har kelas map in apply ro seda mizanim
+            //modelBuilder
+            //    .ApplyConfiguration(
+            //        new UserMapping()); //=> parametr behesh esm kelas mapping ro midim =>baraye har kelas map in apply ro seda mizanim
 
 
             // Code here ...

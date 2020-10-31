@@ -21,6 +21,10 @@
     {
       "library": "axios@0.19.2",
       "destination": "wwwroot/lib/axios/"
+    },
+    {
+      "library": "select2@4.0.13",
+      "destination": "wwwroot/lib/select2/"
     }
   ]
 }

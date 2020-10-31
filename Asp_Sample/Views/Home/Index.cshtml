@@ -1,8 +1,72 @@
-﻿@{
+﻿@model LessonViewModel;
+@using DataLayer.Entity.Select_2_Test
+@{
     ViewData["Title"] = "Home Page";
 }
+
+@section Styles
+{
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <!-- select2-bootstrap4-theme -->
+    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
+}
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div class="row ">
+    <div class="col-md-4">
+        <form asp-action="Index" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="Lesson" class="control-label"></label>*@
+                <select asp-for="Lesson" class="form-control" asp-items="ViewBag.Parent" id="simpleSelect2"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Lessons" class="control-label"></label>
+                <select multiple asp-for="Lessons" asp-items="@ViewBag.Child" class="form-control" id="js-example-basic-multiple-limit"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/lib/select2/js/select2.js"></script>
+    <script>
+        $("#simpleSelect2").select2({
+            placeholder: "Select a Static Value",
+            theme: "bootstrap4",
+            allowClear: false
+        });
+
+        $("#js-example-basic-multiple-limit").select2({});
+
+        $("#simpleSelect2").change(function () {
+            $('#js-example-basic-multiple-limit').empty();
+            var Id = $("#simpleSelect2").val();
+            var url = "/home/LessonApi";
+            $.getJSON(url,
+                { worksGroupId: Id },
+                function (data) {
+                    $.each(data,
+                        function () {
+                            $('#js-example-basic-multiple-limit').append('<option value=' +
+                                this.id +
+                                '>' +
+                                this.title +
+                                '</option>');
+                        });
+                });
+
+        });
+    </script>
+}
